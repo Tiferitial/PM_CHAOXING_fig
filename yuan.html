@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五育评价作业打分端</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* 模拟打分卡片容器 */
+        .grading-card {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+        }
+
+        /* 顶部学生信息（模拟作业批改场景） */
+        .student-info {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .student-info h3 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+        .student-info p {
+            margin: 0;
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* 1. 上方：课程属性标签展示 */
+        .tags-section {
+            margin-bottom: 25px;
+        }
+        .tags-section h4 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* 2. 下方：打分列表（左边标签，右边打分栏） */
+        .scoring-section {
+            margin-bottom: 30px;
+        }
+        .scoring-section h4 {
+            margin: 0 0 15px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .score-row:last-child {
+            border-bottom: none;
+        }
+        .score-label {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+        .score-input-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        .score-input {
+            width: 80px;
+            padding: 8px 10px;
+            border: 1px solid #dcdfe6;
+            border-radius: 6px;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .score-input:focus {
+            border-color: #1976d2;
+        }
+        .score-unit {
+            margin-left: 8px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* 3. 底部：确认等操作按钮 */
+        .action-section {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            padding-top: 10px;
+        }
+        .btn {
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        .btn-cancel {
+            background-color: #fff;
+            border: 1px solid #dcdfe6;
+            color: #606266;
+        }
+        .btn-cancel:hover {
+            background-color: #f5f7fa;
+        }
+        .btn-confirm {
+            background-color: #1976d2;
+            color: #fff;
+        }
+        .btn-confirm:hover {
+            background-color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grading-card">
+        <!-- 顶部：作业基本信息 -->
+        <div class="student-info">
+            <h3>任务一：社会实践报告</h3>
+            <p>学生：张三 | 学号：20230001 | 提交时间：2026-07-15</p>
+        </div>
+
+        <!-- 上方：以标签形式展示关联的课程属性（指标点） -->
+        <div class="tags-section">
+            <h4>关联评价指标</h4>
+            <div class="tag-container">
+                <span class="tag">爱党爱国</span>
+                <span class="tag">敬业奉献</span>
+            </div>
+        </div>
+
+        <!-- 下方：左边是标签，右边是打分栏 -->
+        <div class="scoring-section">
+            <h4>多维指标打分</h4>
+            
+            <div class="score-row">
+                <span class="score-label">爱党爱国</span>
+                <div class="score-input-wrapper">
+                    <input type="number" class="score-input" placeholder="0" value="80">
+                    <span class="score-unit">分</span>
+                </div>
+            </div>
+
+            <div class="score-row">
+                <span class="score-label">敬业奉献</span>
+                <div class="score-input-wrapper">
+                    <input type="number" class="score-input" placeholder="0" value="70">
+                    <span class="score-unit">分</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部：确认等操作 -->
+        <div class="action-section">
+            <button class="btn btn-cancel">暂存草稿</button>
+            <button class="btn btn-confirm">确认提交评分</button>
+        </div>
+    </div>
+
+</body>
+</html>
